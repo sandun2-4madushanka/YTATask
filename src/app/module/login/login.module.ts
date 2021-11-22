@@ -16,7 +16,6 @@ import { BrowserModule } from '@angular/platform-browser';
     LoginRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    
   ]
 })
 export class LoginModule { }
