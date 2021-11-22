@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <div class="col-sm-12 col-lg-4 col-md-6 content ml-auto p-4 ">
+        <form [formGroup]="imageDetailsForm">
+            <div class="form-group">
+                <div class="text-center">
+                    <img class="img-fluid imgContainer" *ngIf="imageUrl" [src]="imageUrl">
+                </div>
+            </div>
+            <div *ngIf="imageUrl" class="card mt-5">
+                <ul class="list-group list-group-flush">
+                    <li *ngFor="let comment of commentList; let index = index" class="list-group-item">{{comment.name}}
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="imageUrl" class="input-group mb-3 mt-5">
+                <input type="text" class="form-control" formControlName="comments" placeholder="Comments">
+                <button (click)="addComments()">Add</button>
+            </div>
+            <div class="form-group" *ngIf="!imageUrl">
+                <label><strong>Upload Files</strong></label>
+                <div class="custom-file">
+                    <input type="file" name="files[]" multiple class="custom-file-input form-control"
+                        (change)="handleFileInput($event.target)">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
